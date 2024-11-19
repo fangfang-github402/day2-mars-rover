@@ -107,4 +107,17 @@ public class MarsRoverTest {
         String report = rover.executeCommand("M");
         assertEquals("-1:0:S",report);
     }
+
+    @Test
+    public void should_increase_x_when_orient_east_and_move(){
+        MarsRover rover = new MarsRover();
+        rover.executeCommand("M");
+        rover.executeCommand("L");
+        rover.executeCommand("M");
+        rover.executeCommand("L");
+        rover.executeCommand("M");
+        rover.executeCommand("L");
+        String report = rover.executeCommand("M");
+        assertEquals("0:0:E",report);
+    }
 }
