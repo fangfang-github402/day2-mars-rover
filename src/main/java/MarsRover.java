@@ -11,21 +11,29 @@ public class MarsRover {
     }
 
     public String executeCommand(String command) {
-        if(direction.equals(Direction.N)){
-            direction = Direction.W;
-            return showStatus();
+        if(command.equals("L")){
+            if(direction.equals(Direction.N)){
+                direction = Direction.W;
+                return showStatus();
+            }
+            if(direction.equals(Direction.W)){
+                direction = Direction.S;
+                return showStatus();
+            }
+            if(direction.equals(Direction.S)){
+                direction = Direction.E;
+                return showStatus();
+            }
+            if(direction.equals(Direction.E)){
+                direction = Direction.N;
+                return showStatus();
+            }
         }
-        if(direction.equals(Direction.W)){
-            direction = Direction.S;
-            return showStatus();
-        }
-        if(direction.equals(Direction.S)){
-            direction = Direction.E;
-            return showStatus();
-        }
-        if(direction.equals(Direction.E)){
-            direction = Direction.N;
-            return showStatus();
+        if(command.equals("R")){
+            if(direction.equals(Direction.N)){
+                direction = Direction.E;
+                return showStatus();
+            }
         }
         return showStatus();
     }
