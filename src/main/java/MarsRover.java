@@ -1,6 +1,7 @@
 public class MarsRover {
+    private String direction = "N";
 
     public String showStatus() {
-        return null;
+        return "0:0:" + this.direction;
     }
 }
