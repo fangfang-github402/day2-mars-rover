@@ -50,7 +50,12 @@ public class MarsRover {
             }
         }
         if(command.equals("M")){
-            coordinate.y = coordinate.Y() + 1;
+            if(direction.equals(Direction.N)){
+                coordinate.y = coordinate.Y() + 1;
+            }
+            if(direction.equals(Direction.W)){
+                coordinate.x = coordinate.X() - 1;
+            }
         }
         return showStatus();
     }
