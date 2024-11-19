@@ -18,20 +18,16 @@ public class MarsRover {
         if(command.equals("L")){
             orientation = orientation.turnLeft();
             direction = orientation.getDirection();
-            return showStatus();
         }
         if(command.equals("R")){
             orientation = orientation.turnRight();
             direction = orientation.getDirection();
-            return showStatus();
         }
         if(command.equals("M")){
             coordinate = orientation.moveForward(coordinate);
-            return showStatus();
         }
         if(command.equals("B")){
             coordinate = orientation.moveBackward(coordinate);
-            return showStatus();
         }
         return showStatus();
     }
