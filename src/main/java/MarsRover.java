@@ -2,10 +2,12 @@ public class MarsRover {
 
     public Direction direction;
     public Coordinate coordinate;
+    public Orientation orientation;
 
     public MarsRover(){
         this.coordinate = new Coordinate();
         this.direction = Direction.N;
+        this.orientation = new NorthOriented();
     }
 
     public String showStatus() {
@@ -14,40 +16,14 @@ public class MarsRover {
 
     public String executeCommand(String command) {
         if(command.equals("L")){
-            if(direction.equals(Direction.N)){
-                direction = Direction.W;
-                return showStatus();
-            }
-            if(direction.equals(Direction.W)){
-                direction = Direction.S;
-                return showStatus();
-            }
-            if(direction.equals(Direction.S)){
-                direction = Direction.E;
-                return showStatus();
-            }
-            if(direction.equals(Direction.E)){
-                direction = Direction.N;
-                return showStatus();
-            }
+            orientation = orientation.turnLeft();
+            direction = orientation.getDirection();
+            return showStatus();
         }
         if(command.equals("R")){
-            if(direction.equals(Direction.N)){
-                direction = Direction.E;
-                return showStatus();
-            }
-            if(direction.equals(Direction.E)){
-                direction = Direction.S;
-                return showStatus();
-            }
-            if(direction.equals(Direction.S)){
-                direction = Direction.W;
-                return showStatus();
-            }
-            if(direction.equals(Direction.W)){
-                direction = Direction.N;
-                return showStatus();
-            }
+            orientation = orientation.turnRight();
+            direction = orientation.getDirection();
+            return showStatus();
         }
         if(command.equals("M")){
             if(direction.equals(Direction.N)){
