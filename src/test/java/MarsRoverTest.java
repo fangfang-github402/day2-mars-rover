@@ -156,4 +156,56 @@ public class MarsRoverTest {
         //Then
         assertEquals("0:0:E",report);
     }
+
+    @Test
+    public void should_descrease_y_when_orient_north_and_move_back(){
+        //Given
+        MarsRover rover = new MarsRover();
+        //When
+        String report = rover.executeCommand("B");
+        //Then
+        assertEquals("0:-1:N",report);
+    }
+
+    @Test
+    public void should_increase_x_when_orient_west_and_move_back(){
+        //Given
+        MarsRover rover = new MarsRover();
+        rover.executeCommand("B");
+        rover.executeCommand("L");
+        //When
+        String report = rover.executeCommand("B");
+        //Then
+        assertEquals("1:-1:W",report);
+    }
+
+    @Test
+    public void should_increase_y_when_orient_south_and_move_back(){
+        //Given
+        MarsRover rover = new MarsRover();
+        rover.executeCommand("B");
+        rover.executeCommand("L");
+        rover.executeCommand("B");
+        rover.executeCommand("L");
+        //When
+        String report = rover.executeCommand("B");
+        //Then
+        assertEquals("1:0:S",report);
+    }
+
+    @Test
+    public void should_descrease_x_when_orient_east_and_move_back(){
+        //Given
+        MarsRover rover = new MarsRover();
+        rover.executeCommand("B");
+        rover.executeCommand("L");
+        rover.executeCommand("B");
+        rover.executeCommand("L");
+        rover.executeCommand("B");
+        rover.executeCommand("L");
+        //When
+        String report = rover.executeCommand("B");
+        //Then
+        assertEquals("0:0:E",report);
+    }
 }
