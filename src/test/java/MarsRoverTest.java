@@ -80,4 +80,11 @@ public class MarsRoverTest {
         String report = rover.executeCommand("R");
         assertEquals("0:0:N",report);
     }
+
+    @Test
+    public void should_incress_y_when_orient_north_and_move(){
+        MarsRover rover = new MarsRover();
+        String report = rover.executeCommand("M");
+        assertEquals("0:1:N",report);
+    }
 }

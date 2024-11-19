@@ -47,6 +47,8 @@ public class MarsRover {
                 return showStatus();
             }
         }
+        if(command.equals("M")){
+        }
         return showStatus();
     }
 }
