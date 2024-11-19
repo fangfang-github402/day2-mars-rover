@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Consumer;
+
 public class MarsRover {
 
     public Direction direction;
@@ -15,22 +19,25 @@ public class MarsRover {
     }
 
     public String executeCommand(String commands) {
+        Map<Character, Consumer<Void>> commandActions = new HashMap<>();
+        commandActions.put('L', v -> {
+            orientation = orientation.turnLeft();
+            direction = orientation.getDirection();
+        });
+        commandActions.put('R', v -> {
+            orientation = orientation.turnRight();
+            direction = orientation.getDirection();
+        });
+        commandActions.put('M', v -> coordinate = orientation.moveForward(coordinate));
+        commandActions.put('B', v -> coordinate = orientation.moveBackward(coordinate));
         commands.chars()
                 .mapToObj(c -> (char) c)
                 .forEach(command -> {
-                    if(command.equals('L')) {
-                        orientation = orientation.turnLeft();
-                        direction = orientation.getDirection();
-                    }
-                    if(command.equals('R')) {
-                        orientation = orientation.turnRight();
-                        direction = orientation.getDirection();
-                    }
-                    if(command.equals('M')) {
-                        coordinate = orientation.moveForward(coordinate);
-                    }
-                    if(command.equals('B')) {
-                        coordinate = orientation.moveBackward(coordinate);
+                    Consumer<Void> action = commandActions.get(command);
+                    if (action != null) {
+                        action.accept(null);
+                    } else {
+                        throw new IllegalArgumentException("Invalid command: " + command);
                     }
                 });
         return showStatus();
