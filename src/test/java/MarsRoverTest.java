@@ -208,4 +208,14 @@ public class MarsRoverTest {
         //Then
         assertEquals("0:0:E",report);
     }
+
+    @Test
+    public void should_report_0_0_E_when_orient_north_and_BLBLBLB(){
+        //Given
+        MarsRover rover = new MarsRover();
+        //When
+        String report = rover.executeCommand("BLBLBLB");
+        //Then
+        assertEquals("0:0:E",report);
+    }
 }
