@@ -96,4 +96,15 @@ public class MarsRoverTest {
         String report = rover.executeCommand("M");
         assertEquals("-1:1:W",report);
     }
+
+    @Test
+    public void should_decress_y_when_orient_south_and_move(){
+        MarsRover rover = new MarsRover();
+        rover.executeCommand("M");
+        rover.executeCommand("L");
+        rover.executeCommand("M");
+        rover.executeCommand("L");
+        String report = rover.executeCommand("M");
+        assertEquals("-1:0:S",report);
+    }
 }
