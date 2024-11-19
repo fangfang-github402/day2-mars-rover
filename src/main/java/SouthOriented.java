@@ -18,4 +18,10 @@ public class SouthOriented implements Orientation{
     public Coordinate moveForward(Coordinate coordinate) {
         return new Coordinate(coordinate.X(),coordinate.Y() - 1);
     }
+
+    @Override
+    public Coordinate moveBackward(Coordinate coordinate) {
+        return new Coordinate(coordinate.X(),coordinate.Y() + 1);
+    }
+
 }

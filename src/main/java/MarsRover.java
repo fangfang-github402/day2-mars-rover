@@ -29,6 +29,10 @@ public class MarsRover {
             coordinate = orientation.moveForward(coordinate);
             return showStatus();
         }
+        if(command.equals("B")){
+            coordinate = orientation.moveBackward(coordinate);
+            return showStatus();
+        }
         return showStatus();
     }
 }
