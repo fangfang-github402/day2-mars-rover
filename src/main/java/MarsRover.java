@@ -56,6 +56,9 @@ public class MarsRover {
             if(direction.equals(Direction.W)){
                 coordinate.x = coordinate.X() - 1;
             }
+            if(direction.equals(Direction.S)){
+                coordinate.y = coordinate.Y() -1;
+            }
         }
         return showStatus();
     }
