@@ -6,6 +6,10 @@ public class MarsRover {
     }
 
     public String executeCommand(String command) {
+        if(direction == "N"){
+            direction = "W";
+            return "0:0:" + direction;
+        }
         return "0:0:" + this.direction;
     }
 }
