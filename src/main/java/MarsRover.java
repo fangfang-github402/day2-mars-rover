@@ -34,6 +34,18 @@ public class MarsRover {
                 direction = Direction.E;
                 return showStatus();
             }
+            if(direction.equals(Direction.E)){
+                direction = Direction.S;
+                return showStatus();
+            }
+            if(direction.equals(Direction.S)){
+                direction = Direction.W;
+                return showStatus();
+            }
+            if(direction.equals(Direction.W)){
+                direction = Direction.N;
+                return showStatus();
+            }
         }
         return showStatus();
     }
