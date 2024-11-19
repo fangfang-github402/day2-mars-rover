@@ -13,4 +13,9 @@ public class SouthOriented implements Orientation{
     public Orientation turnRight() {
         return new WestOriented();
     }
+
+    @Override
+    public Coordinate moveForward(Coordinate coordinate) {
+        return new Coordinate(coordinate.X(),coordinate.Y() - 1);
+    }
 }

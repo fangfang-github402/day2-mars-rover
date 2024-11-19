@@ -26,18 +26,8 @@ public class MarsRover {
             return showStatus();
         }
         if(command.equals("M")){
-            if(direction.equals(Direction.N)){
-                coordinate.y = coordinate.Y() + 1;
-            }
-            if(direction.equals(Direction.W)){
-                coordinate.x = coordinate.X() - 1;
-            }
-            if(direction.equals(Direction.S)){
-                coordinate.y = coordinate.Y() - 1;
-            }
-            if(direction.equals(Direction.E)){
-                coordinate.x = coordinate.X() + 1;
-            }
+            coordinate = orientation.moveForward(coordinate);
+            return showStatus();
         }
         return showStatus();
     }
