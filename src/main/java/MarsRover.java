@@ -23,6 +23,10 @@ public class MarsRover {
             direction = Direction.E;
             return showStatus();
         }
+        if(direction.equals(Direction.E)){
+            direction = Direction.N;
+            return showStatus();
+        }
         return showStatus();
     }
 }
