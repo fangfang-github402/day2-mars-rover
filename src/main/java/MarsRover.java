@@ -14,6 +14,10 @@ public class MarsRover {
             direction = "S";
             return "0:0:" + direction;
         }
+        if(direction == "S"){
+            direction = "E";
+            return "0:0:" + direction;
+        }
         return "0:0:" + this.direction;
     }
 }
