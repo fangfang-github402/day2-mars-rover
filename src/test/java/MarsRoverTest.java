@@ -87,4 +87,13 @@ public class MarsRoverTest {
         String report = rover.executeCommand("M");
         assertEquals("0:1:N",report);
     }
+
+    @Test
+    public void should_descress_x_when_orient_west_and_move(){
+        MarsRover rover = new MarsRover();
+        rover.executeCommand("M");
+        rover.executeCommand("L");
+        String report = rover.executeCommand("M");
+        assertEquals("-1:1:W",report);
+    }
 }
