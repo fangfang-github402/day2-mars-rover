@@ -13,16 +13,16 @@ public class MarsRover {
     public String executeCommand(String command) {
         if(direction.equals(Direction.N)){
             direction = Direction.W;
-            return "0:0:" + direction;
+            return showStatus();
         }
         if(direction.equals(Direction.W)){
             direction = Direction.S;
-            return "0:0:" + direction;
+            return showStatus();
         }
         if(direction.equals(Direction.S)){
             direction = Direction.E;
-            return "0:0:" + direction;
+            return showStatus();
         }
-        return "0:0:" + this.direction;
+        return showStatus();
     }
 }
