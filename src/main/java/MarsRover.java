@@ -1,13 +1,15 @@
 public class MarsRover {
 
     public Direction direction;
+    public Coordinate coordinate;
 
     public MarsRover(){
+        this.coordinate = new Coordinate();
         this.direction = Direction.N;
     }
 
     public String showStatus() {
-        return "0:0:" + this.direction;
+        return this.coordinate.X() + ":" + this.coordinate.Y() + ":" + this.direction;
     }
 
     public String executeCommand(String command) {
@@ -48,6 +50,7 @@ public class MarsRover {
             }
         }
         if(command.equals("M")){
+            coordinate.y = coordinate.Y() + 1;
         }
         return showStatus();
     }
