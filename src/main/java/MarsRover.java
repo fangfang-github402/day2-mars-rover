@@ -57,7 +57,10 @@ public class MarsRover {
                 coordinate.x = coordinate.X() - 1;
             }
             if(direction.equals(Direction.S)){
-                coordinate.y = coordinate.Y() -1;
+                coordinate.y = coordinate.Y() - 1;
+            }
+            if(direction.equals(Direction.E)){
+                coordinate.x = coordinate.X() + 1;
             }
         }
         return showStatus();
